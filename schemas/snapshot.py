@@ -63,4 +63,3 @@ class TeamBetSnapshotRecordBase(BaseModel):
     snapshot_version: str
     created_at: datetime
     season: int | None = None
-    week: int | None = None

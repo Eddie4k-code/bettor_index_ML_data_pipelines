@@ -69,11 +69,10 @@ def test_snapshot_request_is_frozen():
 
 
 def test_team_bet_snapshot_record_base_accepts_required_fields():
-    record = TeamBetSnapshotRecordBase(**_base_record_kwargs(season=2026, week=None))
+    record = TeamBetSnapshotRecordBase(**_base_record_kwargs(season=2026))
 
     assert record.outcome_point is None
     assert record.season == 2026
-    assert record.week is None
 
 
 def test_team_bet_snapshot_record_base_rejects_prop_only_fields():
