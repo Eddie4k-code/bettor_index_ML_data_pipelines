@@ -13,6 +13,12 @@ from schemas.team_bets.nfl_spreads_snapshot import NflSpreadsSnapshotRecord
 from schemas.team_bets.nfl_totals_snapshot import NflTotalsSnapshotRecord
 from schemas.team_bets.spreads_features import TeamBetSpreadsFeatures
 from schemas.team_bets.totals_features import TeamBetTotalsFeatures
+from schemas.team_bets.upstream_rows import (
+    FeaturedOddsRow,
+    TeamBetH2hHitRateRow,
+    TeamBetSpreadsHitRateRow,
+    TeamBetTotalsHitRateRow,
+)
 
 __all__ = [
     "CfbH2hSnapshotRecord",
@@ -27,7 +33,11 @@ __all__ = [
     "NflH2hSnapshotRecord",
     "NflSpreadsSnapshotRecord",
     "NflTotalsSnapshotRecord",
+    "FeaturedOddsRow",
     "TeamBetH2hFeatures",
+    "TeamBetH2hHitRateRow",
     "TeamBetSpreadsFeatures",
+    "TeamBetSpreadsHitRateRow",
     "TeamBetTotalsFeatures",
+    "TeamBetTotalsHitRateRow",
 ]
