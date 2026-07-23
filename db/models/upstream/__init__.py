@@ -1,5 +1,6 @@
 """Read-only mirrors of shared PostgreSQL tables (revised_engine / hit_rate_worker)."""
 
+from db.models.upstream.games import Game
 from db.models.upstream.mlb_hit_rates import MLBHitRates
 from db.models.upstream.mlb_team_bet_hit_rates import MlbTeamBetHitRates
 from db.models.upstream.mlb_team_bet_spreads_hit_rates import MlbTeamBetSpreadsHitRates
@@ -14,6 +15,7 @@ from db.models.upstream.odds_api_featured_odds import OddsAPIFeaturedOdds
 from db.models.upstream.odds_api_prop import OddsAPIProp
 
 __all__ = [
+    "Game",
     "MLBHitRates",
     "MlbTeamBetHitRates",
     "MlbTeamBetSpreadsHitRates",
