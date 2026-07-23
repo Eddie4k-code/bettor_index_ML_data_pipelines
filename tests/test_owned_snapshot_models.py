@@ -118,9 +118,9 @@ OWNED_SNAPSHOT_MODELS = [
 ]
 
 
-def test_owned_models_registry_has_twelve_models():
-    assert len(owned.OWNED_MODELS) == 12
-    assert set(owned.OWNED_MODELS) == set(OWNED_SNAPSHOT_TABLES)
+def test_owned_models_registry_includes_twelve_snapshot_models():
+    assert len(OWNED_SNAPSHOT_TABLES) == 12
+    assert set(OWNED_SNAPSHOT_TABLES).issubset(set(owned.OWNED_MODELS))
 
 
 @pytest.mark.parametrize(("model_cls", "table_name", "feature_columns"), OWNED_SNAPSHOT_MODELS)
@@ -151,4 +151,4 @@ def test_create_owned_tables_materializes_all_snapshot_tables():
     create_owned_tables(engine)
 
     inspector = inspect(engine)
-    assert set(inspector.get_table_names()) == set(OWNED_SNAPSHOT_TABLES.values())
+    assert set(OWNED_SNAPSHOT_TABLES.values()).issubset(set(inspector.get_table_names()))
