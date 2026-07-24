@@ -3,6 +3,7 @@ from schemas.export import (
     ExportManifest,
     ExportRequest,
     ExportRunResult,
+    GradedExportPair,
 )
 from schemas.grade import (
     GradeOutcome,
@@ -52,6 +53,7 @@ __all__ = [
     "ExportManifest",
     "ExportRequest",
     "ExportRunResult",
+    "GradedExportPair",
     "CfbH2hGradeRecord",
     "CfbH2hSnapshotRecord",
     "CfbSpreadsGradeRecord",

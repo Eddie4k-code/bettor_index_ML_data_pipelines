@@ -1,8 +1,12 @@
 """Shared team-bet export request/result shapes and partition manifest metadata."""
 
 from datetime import datetime
+from typing import Generic, TypeVar
 
 from pydantic import BaseModel, ConfigDict
+
+TSnapshot = TypeVar("TSnapshot", bound=BaseModel)
+TGrade = TypeVar("TGrade", bound=BaseModel)
 
 # Columns written from grade rows; training code must drop these from feature matrices.
 EXPORT_LABEL_COLUMNS: tuple[str, ...] = (
@@ -12,6 +16,15 @@ EXPORT_LABEL_COLUMNS: tuple[str, ...] = (
     "away_team_score",
     "graded_at",
 )
+
+
+class GradedExportPair(BaseModel, Generic[TSnapshot, TGrade]):
+    """Snapshot feature row joined to its matching post-game grade label row."""
+
+    model_config = ConfigDict(frozen=True)
+
+    snapshot: TSnapshot
+    grade: TGrade
 
 
 class ExportRequest(BaseModel):
